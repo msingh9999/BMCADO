@@ -28,3 +28,15 @@ steps:
     downloadSourceType: 'Container'
     containerType: 'Assignment'
     containerId: 'MKS1000361'
+- task: azure-deveops-ispw-operation-task@2
+  inputs:
+    connectionId: 'CWCC.BMC.COM:16196#1047 - Latin 1 (Open Systems)'
+    operationType: 'CES'
+    cesUrl: 'http://aus-bdc-cwcc.bmc.com:2020/'
+    cesSecretToken: '$(cesToken)'
+    action: 'GenerateTasksInAssignment'
+    request: |
+      assignmentId=MKS1000361
+      level=DEV3
+    skipWaitingForSetCompletion: false
+    showResponseBodyInConsole: true
